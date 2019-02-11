@@ -16,9 +16,3 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-Route::get('/amigo', function () {
-    $prueba_db = DB::table('prueba_table')->get();
-    dd($prueba_db);
-});
