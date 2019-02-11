@@ -11,14 +11,24 @@
 |
 */
 
-use Illuminate\Support\Facades\DB;
+use App\Empleado;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/amigo', function () {
-    $prueba_db = DB::table('prueba_table')->get();
-    dd($prueba_db);
-});
+/*Route::get('/empleados', function () {
+    $empleados = Empleado::all();
+    dd($empleados);
+});*/
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/empleados', 'EmpleadoController@index')->name('empleados.index');
+
+Route::get('/empleados/create', 'EmpleadoController@create');
+
+Route::post('/empleados/create', 'EmpleadoController@store')->name('empleados.store');
+
