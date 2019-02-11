@@ -17,7 +17,3 @@ WORKDIR /var/www/html/
 COPY . /var/www/html/
 
 COPY ./apacheconf/ /etc/apache2/sites-available/
-
-RUN php artisan config:cache
-
-RUN composer update
